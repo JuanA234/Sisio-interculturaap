@@ -1,4 +1,4 @@
-# 🗺️ Roadmap de Escalabilidad — Sisio interculturaap
+/# 🗺️ Roadmap de Escalabilidad — Sisio interculturaap
 
 Este documento describe la evolución planificada del proyecto desde el prototipo académico hasta una aplicación standalone completamente funcional sin conexión a internet.
 

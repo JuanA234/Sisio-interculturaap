@@ -1,5 +1,6 @@
 from birdnetlib import Recording
 from birdnetlib.analyzer import Analyzer
+from birdnetlib.exceptions import AudioFormatError
 
 _analyzer = None
 
@@ -9,21 +10,23 @@ def _get_analyzer():
         _analyzer = Analyzer()  # Carga el modelo una sola vez
     return _analyzer
 
-async def identify(audio_path: str) -> str | None:
+def identify(audio_path: str) -> str | None:
     """
     Analiza un archivo de audio con BirdNET y retorna el nombre
     científico de la especie con mayor confianza.
     """
     analyzer = _get_analyzer()
-    recording = Recording(
-        analyzer,
-        audio_path,
-        lat=10.9878,   # Coordenadas aproximadas del Magdalena, Colombia
-        lon=-74.7889,
-        date_recorded=None,
-        min_conf=0.25
-    )
-    recording.analyze()
+    try:
+        recording = Recording(
+            analyzer,
+            audio_path,
+            lat=10.9878,   # Coordenadas aproximadas del Magdalena, Colombia
+            lon=-74.7889,
+            min_conf=0.25
+        )
+        recording.analyze()
+    except AudioFormatError as exc:
+        raise ValueError("El audio no es válido o no puede ser leído por BirdNET.") from exc
 
     if not recording.detections:
         return None

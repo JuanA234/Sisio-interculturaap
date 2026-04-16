@@ -6,7 +6,9 @@ app = FastAPI(
     title="Sisio interculturaap API",
     description="Backend para reconocimiento de aves con conocimiento ancestral",
     version="0.1.0"
-)app.add_middleware(
+)
+
+app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # En producción, restringir al dominio de la app
     allow_methods=["*"],

@@ -1,0 +1,7 @@
+fastapi==0.111.0
+uvicorn==0.29.0
+python-multipart==0.0.9   # Para recibir archivos (foto/audio)
+httpx==0.27.0             # Para llamadas HTTP a iNaturalist API
+birdnetlib==0.9.0         # Wrapper oficial de BirdNET-Analyzer
+supabase==2.4.6           # Cliente de Supabase para Python
+python-dotenv==1.0.1      # Variables de entorno

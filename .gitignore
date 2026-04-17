@@ -1,3 +1,21 @@
+# --- FLUTTER / DART ---
+**/build/
+**/.dart_tool/
+**/.gradle/
+**/ios/.generated/
+**/.connectedly/
+
+# --- PYTHON ---
+**/__pycache__/
+**/venv/
+**/.env
+*.py[cod]
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.iml
+
 # Environment variables
 .env
 
